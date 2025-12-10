@@ -1,0 +1,21 @@
+{
+  "name": "playwright_typescript_pom",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Tiago Rosa",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:ui": "npx ts-node utils/global-setup.ts && npx playwright test --ui"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}
