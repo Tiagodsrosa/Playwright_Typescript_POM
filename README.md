@@ -1,32 +1,30 @@
 # Relatório de Testes (playwright-report)
 Esta pasta contém o relatório HTML gerado automaticamente após a execução dos testes. É um site estático completo que permite navegar pelos resultados, ver screenshots, vídeos e traces de depuração.
 
-# O que tem aqui?
+## O que tem aqui?
 1. index.html: O arquivo principal. Ao abri-lo, você vê a lista de todos os testes executados, filtráveis por status (Passou, Falhou, Pulou).
 2. data/: Subpasta contendo os dados brutos (JSONs, imagens, vídeos) que alimentam o relatório visual.
 3. trace/: Se configurado, contém os arquivos de "Trace Viewer", que permitem viajar no tempo e ver o que aconteceu passo-a-passo durante o teste.
 
-# Como Visualizar
+## Como Visualizar
 Embora seja um HTML, ele pode não abrir corretamente se você apenas clicar duas vezes no arquivo devido a políticas de segurança de navegadores modernos (CORS).
 
 A maneira correta de abrir o relatório é rodar o comando no terminal: npx playwright show-report
 
 Isso iniciará um servidor local e abrirá o relatório no seu navegador padrão.
 
-# Integração Contínua (CI)
+## Integração Contínua (CI)
 No GitHub Actions (ver .github/workflows/playwright.yml), esta pasta é salva como um Artefato.
 
 Isso significa que, após a execução dos testes na nuvem, você pode baixar um arquivo .zip contendo esta pasta para analisar falhas que ocorreram no servidor de CI.
 
-# Boas Práticas
+## Boas Práticas
 Ignorar no Git: Esta pasta é sempre regenerada e pode conter arquivos binários pesados. Ela deve estar no .gitignore.
-
--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Resultados Brutos (test-results)
 Esta pasta contém os artefatos brutos gerados durante a execução de cada teste individual. Diferente do playwright-report (que é um site consolidado), esta pasta organiza os arquivos por teste e por navegador.
 
-# O que tem aqui?
+## O que tem aqui?
 Sempre que você roda os testes, o Playwright cria subpastas aqui com uma nomenclatura específica:
 nome-do-teste-navegador-retry
 
@@ -35,15 +33,13 @@ Dentro dessas subpastas, você pode encontrar:
 2. Vídeos (.webm): A gravação da tela durante a execução do teste.
 3. Traces (.zip): Arquivos de rastreamento que contêm toda a rede, console e snapshots do DOM para depuração.
 
-# Diferença para o playwright-report
+## Diferença para o playwright-report
 - test-results: São os arquivos "crus". Útil se você precisa pegar apenas um vídeo específico ou um arquivo de trace para enviar para alguém.
 - playwright-report: É o visualizador amigável que lê esses dados e os apresenta em formato de página web.
 
-Boas Práticas
+## Boas Práticas
 - Ignorar no Git: Esta pasta cresce muito rápido, pois salva arquivos de mídia pesados. Ela deve ser obrigatoriamente listada no .gitignore.
 - Limpeza: É seguro deletar esta pasta a qualquer momento para liberar espaço em disco. O Playwright a recriará na próxima execução.
-
--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Documentação de Configuração do Projeto
 
@@ -109,8 +105,6 @@ Função: Trava de Versões.
 Este arquivo é gerado automaticamente pelo NPM. Ele garante que todos os desenvolvedores que baixarem o projeto tenham exatamente as mesmas versões das bibliotecas instaladas (até a última dependência da dependência), prevenindo o clássico erro "funciona na minha máquina".
 
 Dica: Nunca edite este arquivo manualmente. Ele é atualizado comandos `npm install`.
-
--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Arquitetura do Projeto
 
